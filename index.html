@@ -5,228 +5,247 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Woodpecker – Mapa Sekwencji | Art Open</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap');
-
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ao-dark:      #1a2e1a;
-    --ao-forest:    #2d5016;
-    --ao-primary:   #4a7c2f;
-    --ao-mid:       #6aab3a;
-    --ao-light:     #a8d878;
-    --ao-pale:      #e8f5d8;
-    --ao-mint:      #f2fae8;
+    --ao-dark:    #1a2e1a;
+    --ao-forest:  #2d5016;
+    --ao-primary: #4a7c2f;
+    --ao-mid:     #6aab3a;
+    --ao-light:   #a8d878;
+    --ao-pale:    #e8f5d8;
+    --ao-mint:    #f2fae8;
 
-    /* path colors */
-    --c-shop-bg:    #e8f5d8;
-    --c-shop-bdr:   #4a7c2f;
-    --c-shop-text:  #1a3a0a;
+    --c-shop-bg:   #e8f5d8; --c-shop-bdr:   #4a7c2f; --c-shop-text:  #1a3a0a;
+    --c-reply-bg:  #e0f4f0; --c-reply-bdr:  #1a9a7a; --c-reply-text: #0a4a38;
+    --c-open-bg:   #fdf6e3; --c-open-bdr:   #c8960a; --c-open-text:  #7a5500;
+    --c-cold-bg:   #fef0ee; --c-cold-bdr:   #d9534f; --c-cold-text:  #8b1f1c;
+    --c-start-bg:  #e8f0fd; --c-start-bdr:  #3d72e0; --c-start-text: #1a3a8a;
+    --c-stop-bg:   #f3edf9; --c-stop-bdr:   #8b4fcb; --c-stop-text:  #4a1d7a;
+    --c-neut-bg:   #f0f4f8; --c-neut-bdr:   #8fa8b8; --c-neut-text:  #2c4a5c;
 
-    --c-reply-bg:   #e0f4f0;
-    --c-reply-bdr:  #1a9a7a;
-    --c-reply-text: #0a4a38;
+    --c-ab-a-bg:   #fff8e1; --c-ab-a-bdr:   #f59e0b; --c-ab-a-text:  #78350f;
+    --c-ab-b-bg:   #ede9fe; --c-ab-b-bdr:   #7c3aed; --c-ab-b-text:  #3b0764;
 
-    --c-open-bg:    #fdf6e3;
-    --c-open-bdr:   #c8960a;
-    --c-open-text:  #7a5500;
-
-    --c-cold-bg:    #fef0ee;
-    --c-cold-bdr:   #d9534f;
-    --c-cold-text:  #8b1f1c;
-
-    --c-start-bg:   #e8f0fd;
-    --c-start-bdr:  #3d72e0;
-    --c-start-text: #1a3a8a;
-
-    --c-stop-bg:    #f3edf9;
-    --c-stop-bdr:   #8b4fcb;
-    --c-stop-text:  #4a1d7a;
-
-    --c-neutral-bg:   #f0f4f8;
-    --c-neutral-bdr:  #8fa8b8;
-    --c-neutral-text: #2c4a5c;
-
-    --bg:      #ffffff;
-    --surface: #f8faf5;
-    --border:  #d8e8c8;
-    --text:    #1a2e1a;
-    --muted:   #5a7a4a;
-    --light:   #8aaa7a;
+    --bg:     #ffffff;
+    --surface:#f8faf5;
+    --border: #d8e8c8;
+    --text:   #1a2e1a;
+    --muted:  #5a7a4a;
+    --light:  #8aaa7a;
   }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    padding: 0 0 80px;
-  }
+  body { background:#fff; color:var(--text); font-family:'DM Sans',sans-serif; padding:0 0 80px; }
 
-  /* ── HEADER ── */
-  .hdr { background: var(--ao-dark); padding: 34px 44px 30px; position: relative; overflow: hidden; }
+  /* HEADER */
+  .hdr { background:var(--ao-dark); padding:32px 44px 28px; position:relative; overflow:hidden; }
   .hdr::before { content:''; position:absolute; top:-60px; right:-60px; width:300px; height:300px; background:radial-gradient(circle,rgba(106,171,58,.18) 0%,transparent 70%); pointer-events:none; }
   .hdr::after  { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--ao-mid),var(--ao-light),transparent); }
-  .hdr-inner   { max-width:1200px; margin:0 auto; position:relative; }
-  .hdr-logo    { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
-  .hdr-mark    { width:34px; height:34px; background:var(--ao-mid); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:#fff; }
-  .hdr-name    { font-size:11px; font-weight:600; color:var(--ao-light); letter-spacing:2.5px; text-transform:uppercase; font-family:'DM Mono',monospace; }
-  .hdr h1      { font-size:24px; font-weight:700; color:#fff; margin-bottom:7px; letter-spacing:-.5px; }
-  .hdr p       { font-size:12.5px; color:var(--ao-light); font-family:'DM Mono',monospace; }
-  .badge-row   { display:flex; gap:7px; margin-top:16px; flex-wrap:wrap; }
-  .badge       { font-family:'DM Mono',monospace; font-size:10.5px; padding:3px 11px; border-radius:20px; font-weight:500; border:1px solid; }
-  .b-shop    { background:rgba(74,124,47,.18);  color:#a8d878; border-color:rgba(74,124,47,.5); }
-  .b-reply   { background:rgba(26,154,122,.15); color:#6dd5be; border-color:rgba(26,154,122,.4); }
-  .b-open    { background:rgba(200,150,10,.15); color:#e8c058; border-color:rgba(200,150,10,.4); }
-  .b-cold    { background:rgba(217,83,79,.15);  color:#f08880; border-color:rgba(217,83,79,.4); }
-  .b-neutral { background:rgba(255,255,255,.08);color:#b0c8a0; border-color:rgba(255,255,255,.2); }
+  .hdr-in { max-width:1240px; margin:0 auto; position:relative; }
+  .hdr-logo { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .hdr-mark { width:32px; height:32px; background:var(--ao-mid); border-radius:7px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; color:#fff; }
+  .hdr-name { font-size:11px; font-weight:600; color:var(--ao-light); letter-spacing:2.5px; text-transform:uppercase; font-family:'DM Mono',monospace; }
+  .hdr h1   { font-size:22px; font-weight:700; color:#fff; margin-bottom:6px; letter-spacing:-.4px; }
+  .hdr p    { font-size:12px; color:var(--ao-light); font-family:'DM Mono',monospace; }
+  .badge-row { display:flex; gap:7px; margin-top:14px; flex-wrap:wrap; }
+  .badge { font-family:'DM Mono',monospace; font-size:10px; padding:3px 10px; border-radius:20px; font-weight:500; border:1px solid; }
+  .b-ab     { background:rgba(124,58,237,.15); color:#c4b5fd; border-color:rgba(124,58,237,.4); }
+  .b-shop   { background:rgba(74,124,47,.15);  color:#a8d878; border-color:rgba(74,124,47,.4); }
+  .b-reply  { background:rgba(26,154,122,.15); color:#6dd5be; border-color:rgba(26,154,122,.4); }
+  .b-cold   { background:rgba(217,83,79,.15);  color:#f08880; border-color:rgba(217,83,79,.4); }
+  .b-time   { background:rgba(255,255,255,.08);color:#b0c8a0; border-color:rgba(255,255,255,.2); }
 
-  /* ── LEGEND ── */
-  .legend { background:var(--surface); border-bottom:1px solid var(--border); padding:12px 44px; }
-  .leg-in { max-width:1200px; margin:0 auto; display:flex; gap:20px; flex-wrap:wrap; align-items:center; }
-  .leg-i  { display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--muted); }
-  .leg-d  { width:13px; height:13px; border-radius:4px; border:2px solid; flex-shrink:0; }
-  .ld-start { background:var(--c-start-bg); border-color:var(--c-start-bdr); }
-  .ld-shop  { background:var(--c-shop-bg);  border-color:var(--c-shop-bdr);  }
-  .ld-reply { background:var(--c-reply-bg); border-color:var(--c-reply-bdr); }
-  .ld-open  { background:var(--c-open-bg);  border-color:var(--c-open-bdr);  }
-  .ld-cold  { background:var(--c-cold-bg);  border-color:var(--c-cold-bdr);  }
-  .ld-stop  { background:var(--c-stop-bg);  border-color:var(--c-stop-bdr);  }
+  /* LEGEND */
+  .legend { background:var(--surface); border-bottom:1px solid var(--border); padding:11px 44px; }
+  .leg-in { max-width:1240px; margin:0 auto; display:flex; gap:18px; flex-wrap:wrap; align-items:center; }
+  .leg-i  { display:flex; align-items:center; gap:7px; font-size:11px; color:var(--muted); }
+  .leg-d  { width:12px; height:12px; border-radius:3px; border:2px solid; flex-shrink:0; }
+  .ld-ab-a  { background:var(--c-ab-a-bg); border-color:var(--c-ab-a-bdr); }
+  .ld-ab-b  { background:var(--c-ab-b-bg); border-color:var(--c-ab-b-bdr); }
+  .ld-shop  { background:var(--c-shop-bg); border-color:var(--c-shop-bdr); }
+  .ld-reply { background:var(--c-reply-bg);border-color:var(--c-reply-bdr);}
+  .ld-open  { background:var(--c-open-bg); border-color:var(--c-open-bdr); }
+  .ld-cold  { background:var(--c-cold-bg); border-color:var(--c-cold-bdr); }
 
-  /* ── MAIN ── */
-  .main { max-width:1200px; margin:0 auto; padding:36px 24px; }
+  /* MAIN */
+  .main { max-width:1240px; margin:0 auto; padding:32px 20px; }
 
-  /* ── PHASE SEP ── */
-  .psep { display:flex; align-items:center; gap:12px; margin:34px 0 20px; }
+  /* PHASE SEP */
+  .psep { display:flex; align-items:center; gap:12px; margin:30px 0 18px; }
   .psep-line { flex:1; height:1px; background:var(--border); }
-  .psep-pill { font-family:'DM Mono',monospace; font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--muted); white-space:nowrap; padding:4px 13px; border:1px solid var(--border); border-radius:20px; background:var(--surface); }
+  .psep-pill { font-family:'DM Mono',monospace; font-size:10px; font-weight:500; letter-spacing:1.8px; text-transform:uppercase; color:var(--muted); white-space:nowrap; padding:4px 13px; border:1px solid var(--border); border-radius:20px; background:var(--surface); }
 
-  /* ── NODE ── */
-  .node { border-radius:11px; padding:14px 16px; border:1.5px solid; transition:transform .12s, box-shadow .12s; }
-  .node:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.07); }
-  .n-day   { font-family:'DM Mono',monospace; font-size:9.5px; opacity:.65; margin-bottom:3px; }
-  .n-id    { font-family:'DM Mono',monospace; font-size:19px; font-weight:700; line-height:1; margin-bottom:6px; }
-  .n-title { font-size:12.5px; font-weight:600; line-height:1.35; margin-bottom:5px; }
-  .n-sub   { font-size:11px; line-height:1.6; padding-top:7px; border-top:1px solid; margin-top:5px; opacity:.85; }
-  .n-cta   { display:inline-block; margin-top:8px; font-size:10.5px; font-family:'DM Mono',monospace; padding:3px 8px; border-radius:4px; background:rgba(0,0,0,.05); border:1px solid rgba(0,0,0,.09); }
-
-  .n-start   { background:var(--c-start-bg);   border-color:var(--c-start-bdr);   color:var(--c-start-text); }
-  .n-start   .n-id { color:var(--c-start-bdr); }
-  .n-start   .n-sub { border-color:rgba(61,114,224,.2); }
-
-  .n-neutral { background:var(--c-neutral-bg); border-color:var(--c-neutral-bdr); color:var(--c-neutral-text); }
-  .n-neutral .n-id  { color:var(--c-neutral-bdr); }
-  .n-neutral .n-sub { border-color:rgba(143,168,184,.25); }
-
-  .n-shop  { background:var(--c-shop-bg);  border-color:var(--c-shop-bdr);  color:var(--c-shop-text); }
-  .n-shop  .n-id  { color:var(--ao-primary); }
-  .n-shop  .n-sub { border-color:rgba(74,124,47,.25); }
-
-  .n-reply { background:var(--c-reply-bg); border-color:var(--c-reply-bdr); color:var(--c-reply-text); }
-  .n-reply .n-id  { color:var(--c-reply-bdr); }
-  .n-reply .n-sub { border-color:rgba(26,154,122,.25); }
-
-  .n-open  { background:var(--c-open-bg);  border-color:var(--c-open-bdr);  color:var(--c-open-text); }
-  .n-open  .n-id  { color:var(--c-open-bdr); }
-  .n-open  .n-sub { border-color:rgba(200,150,10,.25); }
-
-  .n-cold  { background:var(--c-cold-bg);  border-color:var(--c-cold-bdr);  color:var(--c-cold-text); }
-  .n-cold  .n-id  { color:var(--c-cold-bdr); }
-  .n-cold  .n-sub { border-color:rgba(217,83,79,.25); }
-
-  .n-success {
-    background:linear-gradient(135deg,var(--c-shop-bg),#d8f0c0);
-    border:2px solid var(--ao-primary); color:var(--c-shop-text);
-    box-shadow:0 2px 14px rgba(74,124,47,.12);
+  /* SEND TIME BADGE */
+  .send-time {
+    display:inline-flex; align-items:center; gap:5px;
+    font-family:'DM Mono',monospace; font-size:10px; font-weight:600;
+    background:#f0f7e8; border:1.5px solid var(--ao-mid);
+    color:var(--ao-forest); padding:4px 11px; border-radius:20px;
+    margin-bottom:10px;
   }
-  .n-success .n-id { color:var(--ao-forest); font-size:22px; }
-  .n-success .n-sub { border-color:rgba(74,124,47,.2); }
+  .send-time-icon { font-size:12px; }
 
-  .n-archive {
-    background:linear-gradient(135deg,var(--c-cold-bg),#fde0de);
-    border:2px solid var(--c-cold-bdr); color:var(--c-cold-text);
+  /* PHASE BLOCK */
+  .phase-block {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px 20px;
+    margin-bottom:6px;
   }
-  .n-archive .n-id { color:var(--c-cold-bdr); font-size:22px; }
-  .n-archive .n-sub { border-color:rgba(217,83,79,.2); }
+  .phase-block-header {
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:14px; flex-wrap:wrap; gap:8px;
+  }
+  .phase-block-title {
+    font-family:'DM Mono',monospace; font-size:11px; font-weight:700;
+    letter-spacing:2px; text-transform:uppercase; color:var(--ao-primary);
+  }
 
-  /* ── ARROWS ── */
-  .varr { width:2px; height:26px; margin:0 auto; position:relative; }
+  /* TIME EDITOR */
+  .time-editor {
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+  }
+  .time-lbl { font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; }
+  .time-inp {
+    font-family:'DM Mono',monospace; font-size:12px; font-weight:600;
+    color:var(--ao-forest); background:#fff; border:1.5px solid var(--ao-mid);
+    border-radius:7px; padding:4px 10px; width:80px; text-align:center;
+    outline:none; cursor:pointer;
+  }
+  .time-inp:focus { border-color:var(--ao-primary); box-shadow:0 0 0 3px rgba(74,124,47,.12); }
+  .day-lbl {
+    font-family:'DM Mono',monospace; font-size:10px; font-weight:600;
+    color:var(--muted); background:#fff; border:1px solid var(--border);
+    border-radius:6px; padding:3px 9px;
+  }
+
+  /* NODE */
+  .node { border-radius:10px; padding:13px 15px; border:1.5px solid; transition:transform .12s,box-shadow .12s; }
+  .node:hover { transform:translateY(-2px); box-shadow:0 5px 18px rgba(0,0,0,.08); }
+  .n-day   { font-family:'DM Mono',monospace; font-size:9px; opacity:.65; margin-bottom:3px; }
+  .n-id    { font-family:'DM Mono',monospace; font-size:17px; font-weight:700; line-height:1; margin-bottom:5px; }
+  .n-title { font-size:12px; font-weight:600; line-height:1.35; margin-bottom:5px; }
+  .n-sub   { font-size:10.5px; line-height:1.6; padding-top:7px; border-top:1px solid; margin-top:5px; opacity:.85; }
+  .n-cta   { display:inline-block; margin-top:7px; font-size:10px; font-family:'DM Mono',monospace; padding:3px 8px; border-radius:4px; background:rgba(0,0,0,.05); border:1px solid rgba(0,0,0,.09); }
+
+  .n-start  { background:var(--c-start-bg); border-color:var(--c-start-bdr); color:var(--c-start-text); }
+  .n-start  .n-id { color:var(--c-start-bdr); } .n-start .n-sub { border-color:rgba(61,114,224,.2); }
+  .n-neut   { background:var(--c-neut-bg);  border-color:var(--c-neut-bdr);  color:var(--c-neut-text); }
+  .n-neut   .n-id { color:var(--c-neut-bdr); } .n-neut .n-sub { border-color:rgba(143,168,184,.25); }
+  .n-ab-a   { background:var(--c-ab-a-bg);  border-color:var(--c-ab-a-bdr);  color:var(--c-ab-a-text); }
+  .n-ab-a   .n-id { color:var(--c-ab-a-bdr); } .n-ab-a .n-sub { border-color:rgba(245,158,11,.2); }
+  .n-ab-b   { background:var(--c-ab-b-bg);  border-color:var(--c-ab-b-bdr);  color:var(--c-ab-b-text); }
+  .n-ab-b   .n-id { color:var(--c-ab-b-bdr); } .n-ab-b .n-sub { border-color:rgba(124,58,237,.2); }
+  .n-shop   { background:var(--c-shop-bg);  border-color:var(--c-shop-bdr);  color:var(--c-shop-text); }
+  .n-shop   .n-id { color:var(--ao-primary); } .n-shop .n-sub { border-color:rgba(74,124,47,.25); }
+  .n-reply  { background:var(--c-reply-bg); border-color:var(--c-reply-bdr); color:var(--c-reply-text); }
+  .n-reply  .n-id { color:var(--c-reply-bdr); } .n-reply .n-sub { border-color:rgba(26,154,122,.25); }
+  .n-open   { background:var(--c-open-bg);  border-color:var(--c-open-bdr);  color:var(--c-open-text); }
+  .n-open   .n-id { color:var(--c-open-bdr); } .n-open .n-sub { border-color:rgba(200,150,10,.25); }
+  .n-cold   { background:var(--c-cold-bg);  border-color:var(--c-cold-bdr);  color:var(--c-cold-text); }
+  .n-cold   .n-id { color:var(--c-cold-bdr); } .n-cold .n-sub { border-color:rgba(217,83,79,.25); }
+  .n-ok     { background:linear-gradient(135deg,var(--c-shop-bg),#d8f0c0); border:2px solid var(--ao-primary); color:var(--c-shop-text); box-shadow:0 2px 12px rgba(74,124,47,.12); }
+  .n-ok     .n-id { color:var(--ao-forest); font-size:20px; } .n-ok .n-sub { border-color:rgba(74,124,47,.2); }
+  .n-ok2    { background:linear-gradient(135deg,var(--c-reply-bg),#c8f0e8); border:2px solid var(--c-reply-bdr); color:var(--c-reply-text); }
+  .n-ok2    .n-id { color:var(--c-reply-bdr); font-size:20px; } .n-ok2 .n-sub { border-color:rgba(26,154,122,.2); }
+  .n-arch   { background:linear-gradient(135deg,var(--c-cold-bg),#fde0de); border:2px solid var(--c-cold-bdr); color:var(--c-cold-text); }
+  .n-arch   .n-id { color:var(--c-cold-bdr); font-size:20px; } .n-arch .n-sub { border-color:rgba(217,83,79,.2); }
+
+  /* ARROWS */
+  .varr { width:2px; height:22px; margin:0 auto; position:relative; }
   .varr::after { content:''; position:absolute; bottom:-5px; left:50%; transform:translateX(-50%); border-left:4px solid transparent; border-right:4px solid transparent; }
-  .va-start   { background:var(--c-start-bdr); } .va-start::after   { border-top:6px solid var(--c-start-bdr); }
-  .va-shop    { background:var(--ao-mid); }       .va-shop::after    { border-top:6px solid var(--ao-mid); }
-  .va-reply   { background:var(--c-reply-bdr); } .va-reply::after   { border-top:6px solid var(--c-reply-bdr); }
-  .va-open    { background:var(--c-open-bdr); }  .va-open::after    { border-top:6px solid var(--c-open-bdr); }
-  .va-cold    { background:var(--c-cold-bdr); }  .va-cold::after    { border-top:6px solid var(--c-cold-bdr); }
-  .va-neutral { background:#ccc; }               .va-neutral::after { border-top:6px solid #ccc; }
+  .va-s  { background:var(--c-start-bdr); } .va-s::after  { border-top:6px solid var(--c-start-bdr); }
+  .va-g  { background:var(--ao-mid); }      .va-g::after  { border-top:6px solid var(--ao-mid); }
+  .va-r  { background:var(--c-reply-bdr); } .va-r::after  { border-top:6px solid var(--c-reply-bdr); }
+  .va-o  { background:var(--c-open-bdr); }  .va-o::after  { border-top:6px solid var(--c-open-bdr); }
+  .va-c  { background:var(--c-cold-bdr); }  .va-c::after  { border-top:6px solid var(--c-cold-bdr); }
+  .va-ab { background:var(--c-ab-a-bdr); }  .va-ab::after { border-top:6px solid var(--c-ab-a-bdr); }
+  .va-n  { background:#ccc; }               .va-n::after  { border-top:6px solid #ccc; }
 
-  .atag { display:inline-block; font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; padding:2px 9px; border-radius:20px; border:1px solid; white-space:nowrap; }
+  /* A/B SPLIT BLOCK */
+  .ab-split {
+    display:grid; grid-template-columns:1fr 1fr; gap:14px;
+    border:2px dashed var(--c-ab-a-bdr); border-radius:12px;
+    padding:14px; background:#fffdf5;
+    position:relative; max-width:640px; margin:0 auto;
+  }
+  .ab-split-label {
+    position:absolute; top:-11px; left:50%; transform:translateX(-50%);
+    background:#fffdf5; padding:0 10px;
+    font-family:'DM Mono',monospace; font-size:10px; font-weight:700;
+    color:var(--c-ab-a-bdr); letter-spacing:1.5px; text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .ab-winner {
+    background:#fff8e1; border:1.5px solid var(--c-ab-a-bdr);
+    border-radius:8px; padding:9px 12px; font-size:11px;
+    color:var(--c-ab-a-text); max-width:640px; margin:10px auto 0;
+    display:flex; gap:8px; align-items:flex-start;
+  }
+  .ab-winner-ico { font-size:16px; flex-shrink:0; }
+  .ab-winner-txt { font-size:11.5px; line-height:1.6; }
+  .ab-winner-txt strong { font-family:'DM Mono',monospace; font-size:10.5px; }
+
+  /* ATAG */
+  .atag { display:inline-block; font-family:'DM Mono',monospace; font-size:9px; font-weight:500; padding:2px 9px; border-radius:20px; border:1px solid; white-space:nowrap; }
   .at-shop  { background:var(--c-shop-bg);  color:var(--ao-primary);  border-color:var(--c-shop-bdr); }
   .at-reply { background:var(--c-reply-bg); color:var(--c-reply-bdr); border-color:var(--c-reply-bdr); }
   .at-open  { background:var(--c-open-bg);  color:var(--c-open-bdr);  border-color:var(--c-open-bdr); }
   .at-cold  { background:var(--c-cold-bg);  color:var(--c-cold-bdr);  border-color:var(--c-cold-bdr); }
 
-  /* ── LAYOUT ── */
-  .center  { display:flex; justify-content:center; margin-bottom:6px; }
-  .center .node { width:310px; }
-
-  .g4 { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:14px; }
-  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr;     gap:16px; }
-  .g2 { display:grid; grid-template-columns:2fr 1fr;         gap:16px; max-width:780px; margin:0 auto; }
-
-  .bcol { display:flex; flex-direction:column; align-items:center; }
-  .bhdr {
-    font-family:'DM Mono',monospace; font-size:9.5px; font-weight:600;
-    letter-spacing:1.5px; text-transform:uppercase; padding:4px 11px;
-    border-radius:20px; margin-bottom:9px; border:1px solid; display:inline-block; text-align:center;
-  }
+  /* BHDR */
+  .bhdr { font-family:'DM Mono',monospace; font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:3px 10px; border-radius:20px; margin-bottom:8px; border:1px solid; display:inline-block; }
   .bh-shop  { background:var(--c-shop-bg);  color:var(--ao-primary);  border-color:var(--c-shop-bdr); }
   .bh-reply { background:var(--c-reply-bg); color:var(--c-reply-bdr); border-color:var(--c-reply-bdr); }
   .bh-open  { background:var(--c-open-bg);  color:var(--c-open-bdr);  border-color:var(--c-open-bdr); }
   .bh-cold  { background:var(--c-cold-bg);  color:var(--c-cold-bdr);  border-color:var(--c-cold-bdr); }
 
-  /* ── STOP GLOBAL ── */
-  .gstop { background:var(--c-stop-bg); border:1.5px dashed var(--c-stop-bdr); border-radius:11px; padding:14px 18px; display:flex; gap:13px; align-items:flex-start; margin-top:22px; }
-  .gs-ico { font-size:20px; flex-shrink:0; margin-top:1px; }
-  .gs-ttl { font-family:'DM Mono',monospace; font-size:10.5px; font-weight:600; color:var(--c-stop-bdr); letter-spacing:1px; text-transform:uppercase; margin-bottom:5px; }
-  .gs-txt { font-size:12px; color:var(--c-stop-text); line-height:1.7; }
-  .gs-txt code { background:rgba(139,79,203,.1); padding:1px 5px; border-radius:3px; font-family:'DM Mono',monospace; font-size:10.5px; }
+  .bcol { display:flex; flex-direction:column; align-items:center; }
+  .center { display:flex; justify-content:center; margin-bottom:6px; }
+  .center .node { width:300px; }
+  .g4 { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; }
+  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr;     gap:14px; }
 
-  /* ── TIMELINE ── */
-  .tl { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px 26px; margin-top:36px; }
-  .tl-ttl { font-family:'DM Mono',monospace; font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
-  .tl-track { display:grid; grid-template-columns:repeat(7,1fr); align-items:center; gap:4px; margin-bottom:18px; }
-  .tl-node { text-align:center; font-family:'DM Mono',monospace; font-size:10.5px; font-weight:600; padding:7px 3px; border-radius:7px; border:1.5px solid; line-height:1.4; }
-  .tl-arr  { text-align:center; color:#ccc; font-size:16px; line-height:1; }
-  .tln-start { background:var(--c-start-bg); color:var(--c-start-bdr); border-color:var(--c-start-bdr); }
-  .tln-mid   { background:var(--c-open-bg);  color:var(--c-open-bdr);  border-color:var(--c-open-bdr); }
-  .tln-conv  { background:var(--c-shop-bg);  color:var(--ao-primary);  border-color:var(--c-shop-bdr); }
-  .tln-stop  { background:var(--c-stop-bg);  color:var(--c-stop-bdr);  border-color:var(--c-stop-bdr); }
-  .tl-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-  .tl-stat  { background:#fff; border:1px solid var(--border); border-radius:9px; padding:13px 14px; }
-  .tl-s-lbl { font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--light); margin-bottom:5px; }
-  .tl-s-val { font-size:26px; font-weight:700; color:var(--ao-primary); line-height:1; margin-bottom:2px; }
-  .tl-s-sub { font-size:11.5px; color:var(--muted); }
+  /* GLOBAL STOP */
+  .gstop { background:var(--c-stop-bg); border:1.5px dashed var(--c-stop-bdr); border-radius:10px; padding:13px 16px; display:flex; gap:12px; align-items:flex-start; margin-top:20px; }
+  .gs-ico { font-size:19px; flex-shrink:0; }
+  .gs-ttl { font-family:'DM Mono',monospace; font-size:10px; font-weight:600; color:var(--c-stop-bdr); letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+  .gs-txt { font-size:11.5px; color:var(--c-stop-text); line-height:1.7; }
+  .gs-txt code { background:rgba(139,79,203,.1); padding:1px 4px; border-radius:3px; font-family:'DM Mono',monospace; font-size:10px; }
 
-  /* ── FOOTER ── */
-  .ftr { background:var(--ao-dark); padding:18px 44px; margin-top:52px; display:flex; align-items:center; justify-content:space-between; }
-  .ftr span { font-size:11.5px; color:var(--light); font-family:'DM Mono',monospace; }
-  .ftr-dot  { width:7px; height:7px; background:var(--ao-mid); border-radius:50%; }
+  /* TIMELINE */
+  .tl { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px 24px; margin-top:32px; }
+  .tl-ttl { font-family:'DM Mono',monospace; font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .tl-track { display:grid; grid-template-columns:repeat(7,1fr); align-items:center; gap:4px; margin-bottom:16px; }
+  .tl-node { text-align:center; font-family:'DM Mono',monospace; font-size:10px; font-weight:600; padding:6px 3px; border-radius:7px; border:1.5px solid; line-height:1.4; }
+  .tl-arr  { text-align:center; color:#ccc; font-size:16px; }
+  .tln-s { background:var(--c-start-bg); color:var(--c-start-bdr); border-color:var(--c-start-bdr); }
+  .tln-m { background:var(--c-open-bg);  color:var(--c-open-bdr);  border-color:var(--c-open-bdr); }
+  .tln-g { background:var(--c-shop-bg);  color:var(--ao-primary);  border-color:var(--c-shop-bdr); }
+  .tln-p { background:var(--c-stop-bg);  color:var(--c-stop-bdr);  border-color:var(--c-stop-bdr); }
+  .tl-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:11px; }
+  .tl-stat  { background:#fff; border:1px solid var(--border); border-radius:8px; padding:12px 13px; }
+  .tl-s-lbl { font-family:'DM Mono',monospace; font-size:9px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--light); margin-bottom:4px; }
+  .tl-s-val { font-size:24px; font-weight:700; color:var(--ao-primary); line-height:1; margin-bottom:2px; }
+  .tl-s-sub { font-size:11px; color:var(--muted); }
 
-  /* ── HIGHLIGHT PATH LABELS ── */
-  .path-label {
-    font-family:'DM Mono',monospace; font-size:9px; font-weight:700;
-    letter-spacing:1.5px; text-transform:uppercase;
-    padding:2px 8px; border-radius:3px; display:inline-block; margin-bottom:5px;
-  }
-  .pl-shop  { background:var(--c-shop-bg);  color:var(--ao-primary); }
-  .pl-reply { background:var(--c-reply-bg); color:var(--c-reply-bdr); }
-  .pl-open  { background:var(--c-open-bg);  color:var(--c-open-bdr); }
-  .pl-cold  { background:var(--c-cold-bg);  color:var(--c-cold-bdr); }
+  /* FOOTER */
+  .ftr { background:var(--ao-dark); padding:16px 44px; margin-top:48px; display:flex; align-items:center; justify-content:space-between; }
+  .ftr span { font-size:11px; color:var(--light); font-family:'DM Mono',monospace; }
+  .ftr-dot  { width:6px; height:6px; background:var(--ao-mid); border-radius:50%; }
 
-  @media(max-width:900px) {
+  /* AB verdict pill */
+  .ab-tag-a { background:var(--c-ab-a-bg); color:var(--c-ab-a-bdr); border:1.5px solid var(--c-ab-a-bdr); border-radius:6px; font-family:'DM Mono',monospace; font-size:11px; font-weight:700; padding:2px 8px; }
+  .ab-tag-b { background:var(--c-ab-b-bg); color:var(--c-ab-b-bdr); border:1.5px solid var(--c-ab-b-bdr); border-radius:6px; font-family:'DM Mono',monospace; font-size:11px; font-weight:700; padding:2px 8px; }
+
+  @media(max-width:880px) {
     .g4,.g3 { grid-template-columns:1fr 1fr; }
-    .hdr,.ftr { padding-left:20px; padding-right:20px; }
-    .main { padding:24px 14px; }
-    .legend { padding:12px 20px; }
+    .ab-split { grid-template-columns:1fr; }
+    .hdr,.ftr { padding-left:18px; padding-right:18px; }
+    .main { padding:20px 12px; }
+    .legend { padding:10px 18px; }
     .tl-track { grid-template-columns:repeat(4,1fr); }
     .tl-stats { grid-template-columns:1fr 1fr; }
   }
@@ -234,41 +253,43 @@
 </head>
 <body>
 
-<!-- ═══ HEADER ═══ -->
+<!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-inner">
+  <div class="hdr-in">
     <div class="hdr-logo">
       <div class="hdr-mark">AO</div>
       <span class="hdr-name">Art Open · Woodpecker</span>
     </div>
     <h1>Mapa Sekwencji Kampanii Reaktywacyjnej</h1>
-    <p>segment: NIEAKTYWNI · 50 klientów · maks. 3 e-maile × 3 kontakty · 14 dni</p>
+    <p>segment: NIEAKTYWNI · 50 klientów · test A/B w Fazie 1 · godziny wysyłki per faza · 14 dni</p>
     <div class="badge-row">
-      <span class="badge b-neutral">9 wariantów ścieżek</span>
+      <span class="badge b-ab">🧪 Test A/B — Faza 1</span>
+      <span class="badge b-time">🕐 Godziny wysyłki per faza</span>
       <span class="badge b-shop">🛒 Kliknął sklep.artopen.pl</span>
       <span class="badge b-reply">💬 Odpisał na e-mail</span>
-      <span class="badge b-open">📧 Otworzył, nie kliknął</span>
       <span class="badge b-cold">⛔ Brak reakcji</span>
     </div>
   </div>
 </header>
 
-<!-- ═══ LEGEND ═══ -->
+<!-- LEGEND -->
 <div class="legend">
   <div class="leg-in">
-    <div class="leg-i"><div class="leg-d ld-start"></div>Start sekwencji</div>
-    <div class="leg-i"><div class="leg-d ld-shop"></div>Kliknął sklep.artopen.pl (najgorętszy lead)</div>
-    <div class="leg-i"><div class="leg-d ld-reply"></div>Odpisał na e-mail (bezpośredni kontakt)</div>
+    <div class="leg-i"><div class="leg-d ld-ab-a"></div>Wariant A (test)</div>
+    <div class="leg-i"><div class="leg-d ld-ab-b"></div>Wariant B (test)</div>
+    <div class="leg-i"><div class="leg-d ld-shop"></div>Kliknął sklep</div>
+    <div class="leg-i"><div class="leg-d ld-reply"></div>Odpisał</div>
     <div class="leg-i"><div class="leg-d ld-open"></div>Otworzył, nie zareagował</div>
     <div class="leg-i"><div class="leg-d ld-cold"></div>Brak reakcji</div>
-    <div class="leg-i"><div class="leg-d ld-stop"></div>Koniec sekwencji / handlowiec</div>
+    <div class="leg-i" style="font-style:italic; color:var(--ao-primary);">✏️ Kliknij pole godziny aby zmienić</div>
   </div>
 </div>
 
-<!-- ═══ MAIN ═══ -->
 <div class="main">
 
-  <!-- ── START ── -->
+  <!-- ═══════════════════════════════════════ -->
+  <!-- START -->
+  <!-- ═══════════════════════════════════════ -->
   <div class="psep"><div class="psep-line"></div><div class="psep-pill">Wejście do sekwencji</div><div class="psep-line"></div></div>
 
   <div class="center">
@@ -276,279 +297,306 @@
       <div class="n-day">DZIEŃ 0</div>
       <div class="n-id">START</div>
       <div class="n-title">50 klientów dodanych do kampanii</div>
-      <div class="n-sub">Trigger: ręczne dodanie z listy segmentu NIEAKTYWNY<br>Woodpecker: tracking open + click włączone · wysyłka 9:00</div>
+      <div class="n-sub">Trigger: ręczne dodanie z listy segmentu NIEAKTYWNY<br>Woodpecker: tracking open + click włączone</div>
     </div>
   </div>
-  <div class="center"><div class="varr va-start"></div></div>
+  <div class="center"><div class="varr va-s"></div></div>
 
-  <!-- ── FAZA 1 ── -->
-  <div class="psep"><div class="psep-line"></div><div class="psep-pill">Faza 1 — Pierwszy kontakt</div><div class="psep-line"></div></div>
+  <!-- ═══════════════════════════════════════ -->
+  <!-- FAZA 1 + A/B TEST -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="psep"><div class="psep-line"></div><div class="psep-pill">Faza 1 — Pierwszy kontakt · Test A/B</div><div class="psep-line"></div></div>
 
-  <div class="center">
-    <div class="node n-neutral">
-      <div class="n-day">DZIEŃ 1</div>
-      <div class="n-id">E-MAIL 1</div>
-      <div class="n-title">"Dawno się nie widzieliśmy – mamy coś dla Państwa"</div>
-      <div class="n-sub">Cel: przełamanie lodów, przypomnienie o Art Open<br>CTA: <strong>link do sklep.artopen.pl</strong> + numer telefonu handlowca</div>
-      <div class="n-cta">→ obserwuj przez 5 dni</div>
+  <!-- Phase 1 block with time editor -->
+  <div class="phase-block">
+    <div class="phase-block-header">
+      <span class="phase-block-title">📤 Faza 1 · E-mail 1</span>
+      <div class="time-editor">
+        <span class="time-lbl">Dzień wysyłki:</span>
+        <input class="time-inp" type="text" value="Dzień 1" id="f1-day" title="Kliknij aby zmienić dzień">
+        <span class="time-lbl">Godzina:</span>
+        <input class="time-inp" type="time" value="09:00" id="f1-time" title="Kliknij aby zmienić godzinę">
+        <span class="time-lbl">Dzień tyg.:</span>
+        <input class="time-inp" type="text" value="Wtorek" id="f1-dow" style="width:90px;" title="Najlepszy dzień tygodnia do wysyłki">
+      </div>
+    </div>
+
+    <!-- A/B SPLIT -->
+    <div class="ab-split">
+      <div class="ab-split-label">🧪 TEST A / B — podział 50% / 50%</div>
+
+      <!-- WARIANT A -->
+      <div>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <span class="ab-tag-a">WARIANT A</span>
+          <span style="font-size:10px; color:var(--c-ab-a-text); font-family:'DM Mono',monospace;">25 kontaktów</span>
+        </div>
+        <div class="node n-ab-a">
+          <div class="n-id">E-MAIL 1A</div>
+          <div class="n-title">"Dawno się nie widzieliśmy – mamy coś dla Państwa"</div>
+          <div class="n-sub">
+            <strong>Temat:</strong> emocjonalny, relacyjny<br>
+            Ton: ciepły, partnerski<br>
+            CTA: link do sklep.artopen.pl<br>
+            <em>Mierz: open rate + click rate</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- WARIANT B -->
+      <div>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <span class="ab-tag-b">WARIANT B</span>
+          <span style="font-size:10px; color:var(--c-ab-b-text); font-family:'DM Mono',monospace;">25 kontaktów</span>
+        </div>
+        <div class="node n-ab-b">
+          <div class="n-id">E-MAIL 1B</div>
+          <div class="n-title">"[Imię], mamy dla Państwa nową ofertę gadżetów z logo"</div>
+          <div class="n-sub">
+            <strong>Temat:</strong> konkretny, produktowy<br>
+            Ton: biznesowy, propozycja wartości<br>
+            CTA: link do sklep.artopen.pl<br>
+            <em>Mierz: open rate + click rate</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AB winner note -->
+    <div class="ab-winner">
+      <div class="ab-winner-ico">📊</div>
+      <div class="ab-winner-txt">
+        <strong>CO MIERZYĆ:</strong> Open rate · Click rate · Reply rate · Czas do otwarcia<br>
+        <strong>KIEDY OCENIAĆ:</strong> Po 5 dniach od wysyłki — przed startem Fazy 2<br>
+        <strong>WYNIK:</strong> Zwycięski wariant stosuj w kolejnych kampaniach reaktywacyjnych · Woodpecker raport: <em>A/B test results</em>
+      </div>
     </div>
   </div>
 
-  <!-- ─── 4-WAY FAN: E1 → 4 ścieżki ─── -->
-  <div style="max-width:1100px; margin:10px auto 0; overflow:visible;">
-    <svg width="100%" height="72" viewBox="0 0 1100 72" preserveAspectRatio="xMidYMid meet" style="display:block; overflow:visible;">
-      <!-- stem -->
-      <line x1="550" y1="0" x2="550" y2="20" stroke="#ccc" stroke-width="1.5"/>
-      <!-- branches to 4 columns: ~140, ~370, ~730, ~960 -->
-      <path d="M550,20 Q550,50 140,65" stroke="#4a7c2f" stroke-width="2" fill="none"/>
-      <path d="M550,20 Q550,50 370,65" stroke="#1a9a7a" stroke-width="2" fill="none"/>
-      <path d="M550,20 Q550,50 730,65" stroke="#c8960a" stroke-width="2" fill="none"/>
-      <path d="M550,20 Q550,50 960,65" stroke="#d9534f" stroke-width="2" fill="none"/>
-      <!-- arrowheads -->
-      <polygon points="140,65 134,57 146,57" fill="#4a7c2f"/>
-      <polygon points="370,65 364,57 376,57" fill="#1a9a7a"/>
-      <polygon points="730,65 724,57 736,57" fill="#c8960a"/>
-      <polygon points="960,65 954,57 966,57" fill="#d9534f"/>
+  <!-- Fan 4 ścieżki -->
+  <div style="max-width:1100px; margin:8px auto 0; overflow:visible;">
+    <svg width="100%" height="68" viewBox="0 0 1100 68" preserveAspectRatio="xMidYMid meet" style="display:block;overflow:visible;">
+      <line x1="550" y1="0" x2="550" y2="18" stroke="#ccc" stroke-width="1.5"/>
+      <path d="M550,18 Q550,48 140,63" stroke="#4a7c2f" stroke-width="2" fill="none"/>
+      <path d="M550,18 Q550,48 370,63" stroke="#1a9a7a" stroke-width="2" fill="none"/>
+      <path d="M550,18 Q550,48 730,63" stroke="#c8960a" stroke-width="2" fill="none"/>
+      <path d="M550,18 Q550,48 960,63" stroke="#d9534f" stroke-width="2" fill="none"/>
+      <polygon points="140,63 134,55 146,55" fill="#4a7c2f"/>
+      <polygon points="370,63 364,55 376,55" fill="#1a9a7a"/>
+      <polygon points="730,63 724,55 736,55" fill="#c8960a"/>
+      <polygon points="960,63 954,55 966,55" fill="#d9534f"/>
     </svg>
   </div>
-
-  <!-- Arrow labels under fan -->
-  <div class="g4" style="max-width:1100px; margin:0 auto 0;">
+  <div class="g4" style="max-width:1100px; margin:0 auto;">
     <div style="text-align:center;"><span class="atag at-shop">🛒 Kliknął sklep.artopen.pl</span></div>
     <div style="text-align:center;"><span class="atag at-reply">💬 Odpisał na e-mail</span></div>
     <div style="text-align:center;"><span class="atag at-open">📧 Otworzył, nie kliknął/odpisał</span></div>
     <div style="text-align:center;"><span class="atag at-cold">⛔ Brak reakcji (5 dni)</span></div>
   </div>
 
-  <!-- ── FAZA 2 ── -->
-  <div class="psep"><div class="psep-line"></div><div class="psep-pill">Faza 2 — Rozgałęzienie behawioralne (4 ścieżki)</div><div class="psep-line"></div></div>
+  <!-- ═══════════════════════════════════════ -->
+  <!-- FAZA 2 -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="psep"><div class="psep-line"></div><div class="psep-pill">Faza 2 — Rozgałęzienie behawioralne</div><div class="psep-line"></div></div>
 
-  <div class="g4" style="max-width:1100px; margin:0 auto 10px;">
-
-    <!-- 2A: kliknął sklep -->
-    <div class="bcol">
-      <span class="bhdr bh-shop">Ścieżka A · Sklep</span>
-      <div class="node n-shop" style="width:100%;">
-        <div class="n-day">DZIEŃ 2–3 · IF clicked_link=sklep.artopen.pl</div>
-        <div class="n-id">E-MAIL 2A</div>
-        <div class="n-title">"Widzimy, że zainteresowali się Państwo naszym sklepem"</div>
-        <div class="n-sub">
-          Najgorętszy lead — klient odwiedził sklep<br>
-          Cel: przyspieszenie decyzji zakupowej<br>
-          CTA: Dedykowana oferta + rabat -X% ważny 48h
-        </div>
-        <div class="n-cta">Woodpecker: IF click_url contains "sklep.artopen"</div>
+  <div class="phase-block">
+    <div class="phase-block-header">
+      <span class="phase-block-title">📤 Faza 2 · E-maile 2A / 2C / 2D</span>
+      <div class="time-editor">
+        <span class="time-lbl">Dzień:</span>
+        <input class="time-inp" type="text" value="Dzień 2–6" id="f2-day" style="width:90px;">
+        <span class="time-lbl">Godzina:</span>
+        <input class="time-inp" type="time" value="10:00" id="f2-time">
+        <span class="time-lbl">Dzień tyg.:</span>
+        <input class="time-inp" type="text" value="Środa" id="f2-dow" style="width:90px;">
       </div>
     </div>
 
-    <!-- 2B: odpisał -->
-    <div class="bcol">
-      <span class="bhdr bh-reply">Ścieżka B · Reply</span>
-      <div class="node n-reply" style="width:100%;">
-        <div class="n-day">NATYCHMIAST · IF reply=YES</div>
-        <div class="n-id">STOP AUTO</div>
-        <div class="n-title">Klient odpisał — sekwencja zatrzymana automatycznie</div>
-        <div class="n-sub">
-          Woodpecker: <strong>STOP sekwencja</strong> przy wykryciu reply<br>
-          Handlowiec odpowiada ręcznie w ciągu 2h<br>
-          CRM tag: <code style="font-family:'DM Mono',monospace;font-size:10px;background:rgba(26,154,122,.12);padding:1px 4px;border-radius:3px;">replied_e1</code> · priorytet: WYSOKI
-        </div>
-        <div class="n-cta">→ dalej: ręczna rozmowa handlowca</div>
-      </div>
-    </div>
+    <div class="g4" style="margin-top:4px;">
 
-    <!-- 2C: otworzył nie kliknął -->
-    <div class="bcol">
-      <span class="bhdr bh-open">Ścieżka C · Otworzył</span>
-      <div class="node n-open" style="width:100%;">
-        <div class="n-day">DZIEŃ 4 · IF opened=YES AND clicked=NO AND replied=NO</div>
-        <div class="n-id">E-MAIL 2C</div>
-        <div class="n-title">"Czy mogę odpowiedzieć na Państwa pytania?"</div>
-        <div class="n-sub">
-          Klient widział wiadomość, ale się nie zaangażował<br>
-          Cel: usunięcie bariery, zachęta do rozmowy<br>
-          CTA: Odpisz lub zadzwoń pod [numer]
+      <!-- 2A: sklep -->
+      <div class="bcol">
+        <span class="bhdr bh-shop">Ścieżka A · Sklep</span>
+        <div class="node n-shop" style="width:100%;">
+          <div class="n-day">+2–3 dni · IF click=sklep.artopen.pl</div>
+          <div class="n-id">E-MAIL 2A</div>
+          <div class="n-title">"Widzimy, że odwiedzili Państwo nasz sklep"</div>
+          <div class="n-sub">Hot lead — klient już w sklepie<br>Cel: przyspieszenie zakupu<br>CTA: Rabat -X% · kod: POWROT24<br>Ważny 48h</div>
         </div>
-        <div class="n-cta">Delay: +3 dni od E-mail 1</div>
       </div>
-    </div>
 
-    <!-- 2D: brak reakcji -->
-    <div class="bcol">
-      <span class="bhdr bh-cold">Ścieżka D · Cold</span>
-      <div class="node n-cold" style="width:100%;">
-        <div class="n-day">DZIEŃ 6 · IF opened=NO po 5 dniach</div>
-        <div class="n-id">E-MAIL 2D</div>
-        <div class="n-title">"Ostatnia szansa na [konkretna korzyść]"</div>
-        <div class="n-sub">
-          Klient nawet nie otworzył — zmień temat i kąt!<br>
-          Cel: drugie uderzenie z innym subject line<br>
-          CTA: Oferta czasowa + link do sklepu
+      <!-- 2B: reply = STOP -->
+      <div class="bcol">
+        <span class="bhdr bh-reply">Ścieżka B · Reply</span>
+        <div class="node n-reply" style="width:100%;">
+          <div class="n-day">NATYCHMIAST · IF reply=YES</div>
+          <div class="n-id">STOP AUTO</div>
+          <div class="n-title">Klient odpisał — sekwencja zatrzymana</div>
+          <div class="n-sub">Woodpecker: auto-STOP przy reply<br>Tag CRM: <code style="font-family:'DM Mono',monospace;font-size:9.5px;background:rgba(26,154,122,.12);padding:1px 3px;border-radius:2px;">replied_e1</code><br>Handlowiec odpowiada w 2h<br>Priorytet: WYSOKI</div>
+          <div class="n-cta">→ ręczna rozmowa handlowca</div>
         </div>
-        <div class="n-cta">Delay: +5 dni · zmień subject line!</div>
       </div>
-    </div>
 
+      <!-- 2C: otworzył -->
+      <div class="bcol">
+        <span class="bhdr bh-open">Ścieżka C · Otworzył</span>
+        <div class="node n-open" style="width:100%;">
+          <div class="n-day">+3–4 dni · IF open=YES, click=NO, reply=NO</div>
+          <div class="n-id">E-MAIL 2C</div>
+          <div class="n-title">"Czy mogę odpowiedzieć na Państwa pytania?"</div>
+          <div class="n-sub">Widział wiadomość, nie zareagował<br>Cel: usunięcie bariery<br>CTA: Odpisz lub zadzwoń pod [nr]</div>
+        </div>
+      </div>
+
+      <!-- 2D: cold -->
+      <div class="bcol">
+        <span class="bhdr bh-cold">Ścieżka D · Cold</span>
+        <div class="node n-cold" style="width:100%;">
+          <div class="n-day">+5–6 dni · IF open=NO</div>
+          <div class="n-id">E-MAIL 2D</div>
+          <div class="n-title">"Ostatnia szansa na [korzyść]"</div>
+          <div class="n-sub">Nie otworzył — zmień temat!<br>Cel: drugie uderzenie<br>CTA: Oferta czasowa + link sklep</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <!-- Sub-fans faza 2 → 3 (tylko dla A, C, D — B = STOP) -->
-  <div style="display:flex; max-width:1100px; margin:8px auto 6px; gap:14px; align-items:flex-start;">
-
-    <!-- A sub-fan -->
+  <!-- Sub-fans faza 2→3 -->
+  <div style="display:flex; max-width:1100px; margin:8px auto 6px; gap:12px; align-items:flex-start;">
     <div style="flex:1; text-align:center;">
-      <svg width="100%" height="50" viewBox="0 0 220 50" preserveAspectRatio="xMidYMid meet" style="display:block; overflow:visible;">
-        <line x1="110" y1="0" x2="110" y2="14" stroke="#ccc" stroke-width="1.5"/>
-        <path d="M110,14 Q110,34 55,46" stroke="#4a7c2f" stroke-width="1.5" fill="none"/>
-        <path d="M110,14 Q110,34 165,46" stroke="#d9534f" stroke-width="1.5" fill="none"/>
-        <polygon points="55,46 50,38 60,38" fill="#4a7c2f"/>
-        <polygon points="165,46 160,38 170,38" fill="#d9534f"/>
+      <svg width="100%" height="48" viewBox="0 0 200 48" preserveAspectRatio="xMidYMid meet" style="display:block;overflow:visible;">
+        <line x1="100" y1="0" x2="100" y2="12" stroke="#ccc" stroke-width="1.5"/>
+        <path d="M100,12 Q100,32 50,44" stroke="#4a7c2f" stroke-width="1.5" fill="none"/>
+        <path d="M100,12 Q100,32 150,44" stroke="#d9534f" stroke-width="1.5" fill="none"/>
+        <polygon points="50,44 45,36 55,36" fill="#4a7c2f"/>
+        <polygon points="150,44 145,36 155,36" fill="#d9534f"/>
       </svg>
-      <div style="display:flex;justify-content:space-between;font-size:9.5px;font-family:'DM Mono',monospace;padding:0 6px;color:#aaa;">
-        <span style="color:#4a7c2f;">↙ reaguje → 3A</span><span style="color:#d9534f;">↘ brak → 3C</span>
+      <div style="display:flex;justify-content:space-between;font-size:9px;font-family:'DM Mono',monospace;color:#aaa;padding:0 4px;">
+        <span style="color:#4a7c2f;">↙ reaguje→3A</span><span style="color:#d9534f;">↘ brak→3C</span>
       </div>
     </div>
-
-    <!-- B = STOP — brak sub-fana -->
-    <div style="flex:1; text-align:center; padding-top:8px;">
-      <div style="font-family:'DM Mono',monospace; font-size:9px; color:var(--c-reply-bdr); background:var(--c-reply-bg); border:1px solid var(--c-reply-bdr); border-radius:6px; padding:8px 6px; line-height:1.5;">
-        ✋ STOP automatyczny<br>handlowiec przejmuje
+    <div style="flex:1; text-align:center; padding-top:6px;">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--c-reply-bdr);background:var(--c-reply-bg);border:1px solid var(--c-reply-bdr);border-radius:6px;padding:7px 5px;line-height:1.5;">
+        ✋ STOP auto<br>handlowiec przejmuje
       </div>
     </div>
-
-    <!-- C sub-fan -->
     <div style="flex:1; text-align:center;">
-      <svg width="100%" height="50" viewBox="0 0 220 50" preserveAspectRatio="xMidYMid meet" style="display:block; overflow:visible;">
-        <line x1="110" y1="0" x2="110" y2="14" stroke="#ccc" stroke-width="1.5"/>
-        <path d="M110,14 Q110,34 55,46" stroke="#c8960a" stroke-width="1.5" fill="none"/>
-        <path d="M110,14 Q110,34 165,46" stroke="#d9534f" stroke-width="1.5" fill="none"/>
-        <polygon points="55,46 50,38 60,38" fill="#c8960a"/>
-        <polygon points="165,46 160,38 170,38" fill="#d9534f"/>
+      <svg width="100%" height="48" viewBox="0 0 200 48" preserveAspectRatio="xMidYMid meet" style="display:block;overflow:visible;">
+        <line x1="100" y1="0" x2="100" y2="12" stroke="#ccc" stroke-width="1.5"/>
+        <path d="M100,12 Q100,32 50,44" stroke="#c8960a" stroke-width="1.5" fill="none"/>
+        <path d="M100,12 Q100,32 150,44" stroke="#d9534f" stroke-width="1.5" fill="none"/>
+        <polygon points="50,44 45,36 55,36" fill="#c8960a"/>
+        <polygon points="150,44 145,36 155,36" fill="#d9534f"/>
       </svg>
-      <div style="display:flex;justify-content:space-between;font-size:9.5px;font-family:'DM Mono',monospace;padding:0 6px;color:#aaa;">
-        <span style="color:#c8960a;">↙ reaguje → 3B</span><span style="color:#d9534f;">↘ brak → 3C</span>
+      <div style="display:flex;justify-content:space-between;font-size:9px;font-family:'DM Mono',monospace;color:#aaa;padding:0 4px;">
+        <span style="color:#c8960a;">↙ reaguje→3B</span><span style="color:#d9534f;">↘ brak→3C</span>
       </div>
     </div>
-
-    <!-- D sub-fan -->
     <div style="flex:1; text-align:center;">
-      <svg width="100%" height="50" viewBox="0 0 220 50" preserveAspectRatio="xMidYMid meet" style="display:block; overflow:visible;">
-        <line x1="110" y1="0" x2="110" y2="14" stroke="#ccc" stroke-width="1.5"/>
-        <path d="M110,14 Q110,34 55,46" stroke="#c8960a" stroke-width="1.5" fill="none"/>
-        <path d="M110,14 Q110,34 165,46" stroke="#d9534f" stroke-width="1.5" fill="none"/>
-        <polygon points="55,46 50,38 60,38" fill="#c8960a"/>
-        <polygon points="165,46 160,38 170,38" fill="#d9534f"/>
+      <svg width="100%" height="48" viewBox="0 0 200 48" preserveAspectRatio="xMidYMid meet" style="display:block;overflow:visible;">
+        <line x1="100" y1="0" x2="100" y2="12" stroke="#ccc" stroke-width="1.5"/>
+        <path d="M100,12 Q100,32 50,44" stroke="#c8960a" stroke-width="1.5" fill="none"/>
+        <path d="M100,12 Q100,32 150,44" stroke="#d9534f" stroke-width="1.5" fill="none"/>
+        <polygon points="50,44 45,36 55,36" fill="#c8960a"/>
+        <polygon points="150,44 145,36 155,36" fill="#d9534f"/>
       </svg>
-      <div style="display:flex;justify-content:space-between;font-size:9.5px;font-family:'DM Mono',monospace;padding:0 6px;color:#aaa;">
-        <span style="color:#c8960a;">↙ reaguje → 3B</span><span style="color:#d9534f;">↘ brak ×2 → 3C</span>
+      <div style="display:flex;justify-content:space-between;font-size:9px;font-family:'DM Mono',monospace;color:#aaa;padding:0 4px;">
+        <span style="color:#c8960a;">↙ reaguje→3B</span><span style="color:#d9534f;">↘ brak×2→3C</span>
       </div>
     </div>
-
   </div>
 
-  <!-- ── FAZA 3 ── -->
+  <!-- ═══════════════════════════════════════ -->
+  <!-- FAZA 3 -->
+  <!-- ═══════════════════════════════════════ -->
   <div class="psep"><div class="psep-line"></div><div class="psep-pill">Faza 3 — Konwergencja ścieżek (finalne e-maile)</div><div class="psep-line"></div></div>
 
-  <div class="g3" style="max-width:1100px; margin:0 auto 10px;">
-
-    <!-- 3A: hot — oferta sklepu -->
-    <div class="bcol">
-      <div class="node n-shop" style="width:100%;">
-        <div class="n-day">DZIEŃ 5–7 · ze ścieżki A (kliknął sklep)</div>
-        <div class="n-id">E-MAIL 3A</div>
-        <div class="n-title">"Specjalnie dla Państwa – dedykowana oferta sklepu Art Open"</div>
-        <div class="n-sub">
-          Cel: finalizacja zakupu / zamówienia<br>
-          CTA: Bezpośredni link do koszyka / produktu<br>
-          + Rabat -X% z kodem: <code style="font-family:'DM Mono',monospace;font-size:10px;background:rgba(74,124,47,.12);padding:1px 4px;border-radius:3px;">POWROT24</code>
-        </div>
+  <div class="phase-block">
+    <div class="phase-block-header">
+      <span class="phase-block-title">📤 Faza 3 · E-maile 3A / 3B / 3C</span>
+      <div class="time-editor">
+        <span class="time-lbl">Dzień:</span>
+        <input class="time-inp" type="text" value="Dzień 5–14" id="f3-day" style="width:95px;">
+        <span class="time-lbl">Godzina:</span>
+        <input class="time-inp" type="time" value="11:00" id="f3-time">
+        <span class="time-lbl">Dzień tyg.:</span>
+        <input class="time-inp" type="text" value="Czwartek" id="f3-dow" style="width:95px;">
       </div>
     </div>
 
-    <!-- 3B: warm — spotkanie -->
-    <div class="bcol">
-      <div class="node n-open" style="width:100%;">
-        <div class="n-day">DZIEŃ 7–10 · ze ścieżek C + D (otworzył / brak)</div>
-        <div class="n-id">E-MAIL 3B</div>
-        <div class="n-title">"Kiedy moglibyśmy porozmawiać? – 15 minut wystarczy"</div>
-        <div class="n-sub">
-          Cel: umówienie rozmowy lub demo<br>
-          CTA: Calendly / link do kalendarza handlowca<br>
-          Alternatywnie: odpisz z preferowanym terminem
+    <div class="g3" style="margin-top:4px;">
+
+      <div class="bcol">
+        <div class="node n-shop" style="width:100%;">
+          <div class="n-day">Dzień 5–7 · ze ścieżki A (sklep)</div>
+          <div class="n-id">E-MAIL 3A</div>
+          <div class="n-title">"Dedykowana oferta sklepu Art Open"</div>
+          <div class="n-sub">Cel: finalizacja zakupu<br>CTA: link do koszyka · kod POWROT24<br>Rabat ważny 7 dni</div>
         </div>
       </div>
-    </div>
 
-    <!-- 3C: cold — zamknięcie -->
-    <div class="bcol">
-      <div class="node n-cold" style="width:100%;">
-        <div class="n-day">DZIEŃ 11–14 · brak reakcji na E-mail 2</div>
-        <div class="n-id">E-MAIL 3C</div>
-        <div class="n-title">"To nasza ostatnia wiadomość – coś możemy zrobić lepiej?"</div>
-        <div class="n-sub">
-          Cel: zebranie feedbacku, godne zakończenie<br>
-          CTA: Ankieta 30 sekund / odpowiedz jednym zdaniem<br>
-          Po tym e-mailu — STOP niezależnie od reakcji
+      <div class="bcol">
+        <div class="node n-open" style="width:100%;">
+          <div class="n-day">Dzień 7–10 · ze ścieżek C + D</div>
+          <div class="n-id">E-MAIL 3B</div>
+          <div class="n-title">"15 minut rozmowy – kiedy moglibyśmy porozmawiać?"</div>
+          <div class="n-sub">Cel: umówienie rozmowy lub demo<br>CTA: Calendly / link do kalendarza<br>Alternatywnie: odpisz z terminem</div>
         </div>
       </div>
-    </div>
 
+      <div class="bcol">
+        <div class="node n-cold" style="width:100%;">
+          <div class="n-day">Dzień 11–14 · brak reakcji na E-mail 2</div>
+          <div class="n-id">E-MAIL 3C</div>
+          <div class="n-title">"To nasza ostatnia wiadomość – coś możemy zrobić lepiej?"</div>
+          <div class="n-sub">Cel: feedback + godne zamknięcie<br>CTA: Ankieta 30 sekund<br>Po tym e-mailu — STOP niezależnie od reakcji</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- Final arrows -->
-  <div class="g3" style="max-width:1100px; margin:0 auto 0;">
-    <div style="text-align:center;"><div class="varr va-shop"  style="height:24px; margin:0 auto;"></div></div>
-    <div style="text-align:center;"><div class="varr va-open"  style="height:24px; margin:0 auto;"></div></div>
-    <div style="text-align:center;"><div class="varr va-cold"  style="height:24px; margin:0 auto;"></div></div>
+  <div class="g3" style="max-width:100%; margin:4px 0 0;">
+    <div style="text-align:center;"><div class="varr va-g" style="height:22px;margin:0 auto;"></div></div>
+    <div style="text-align:center;"><div class="varr va-o" style="height:22px;margin:0 auto;"></div></div>
+    <div style="text-align:center;"><div class="varr va-c" style="height:22px;margin:0 auto;"></div></div>
   </div>
 
-  <!-- ── FAZA 4 ── -->
-  <div class="psep"><div class="psep-line"></div><div class="psep-pill">Faza 4 — Zakończenie</div><div class="psep-line"></div></div>
+  <!-- ═══════════════════════════════════════ -->
+  <!-- FAZA 4: ZAKOŃCZENIE -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="psep"><div class="psep-line"></div><div class="psep-pill">Faza 4 — Zakończenie sekwencji</div><div class="psep-line"></div></div>
 
-  <!-- Outcome grid: 3 outcomes -->
-  <div class="g3" style="max-width:1100px; margin:0 auto;">
-
-    <div class="node n-success">
+  <div class="g3">
+    <div class="node n-ok">
       <div class="n-id">✓ ZAKUP</div>
       <div class="n-title">Klient dokonał zakupu w sklepie</div>
-      <div class="n-sub">
-        Woodpecker: STOP · Tag CRM: <code style="font-family:'DM Mono',monospace;font-size:10px;background:rgba(74,124,47,.12);padding:1px 4px;border-radius:3px;">customer_returned</code><br>
-        Handlowiec: e-mail/tel. z podziękowaniem w 24h<br>
-        Dalej: program lojalnościowy / kolejna kampania
-      </div>
+      <div class="n-sub">STOP · Tag CRM: <code style="font-family:'DM Mono',monospace;font-size:9.5px;background:rgba(74,124,47,.12);padding:1px 3px;border-radius:2px;">customer_returned</code><br>Handlowiec: podziękowanie 24h<br>Dalej: program lojalnościowy</div>
     </div>
-
-    <div class="node n-success" style="border-color:var(--c-reply-bdr); background:linear-gradient(135deg,var(--c-reply-bg),#c8f0e8);">
-      <div class="n-id" style="color:var(--c-reply-bdr);">✓ KONTAKT</div>
+    <div class="node n-ok2">
+      <div class="n-id">✓ KONTAKT</div>
       <div class="n-title">Klient odpisał lub umówił rozmowę</div>
-      <div class="n-sub">
-        Woodpecker: STOP · Tag CRM: <code style="font-family:'DM Mono',monospace;font-size:10px;background:rgba(26,154,122,.12);padding:1px 4px;border-radius:3px;">do_kontaktu</code><br>
-        Handlowiec przejmuje w ciągu 2h<br>
-        Dalej: oferta indywidualna / spotkanie
-      </div>
+      <div class="n-sub">STOP · Tag CRM: <code style="font-family:'DM Mono',monospace;font-size:9.5px;background:rgba(26,154,122,.12);padding:1px 3px;border-radius:2px;">do_kontaktu</code><br>Handlowiec przejmuje w 2h<br>Dalej: oferta indywidualna</div>
     </div>
-
-    <div class="node n-archive">
+    <div class="node n-arch">
       <div class="n-id">✗ COLD</div>
       <div class="n-title">Brak reakcji — archiwizacja</div>
-      <div class="n-sub">
-        Woodpecker: STOP · Tag: <code style="font-family:'DM Mono',monospace;font-size:10px;background:rgba(217,83,79,.1);padding:1px 4px;border-radius:3px;">cold_final</code><br>
-        Lista reaktywacji — możliwy powrót za 6 miesięcy<br>
-        Opcja: kampania pocztowa / telefon
-      </div>
+      <div class="n-sub">STOP · Tag: <code style="font-family:'DM Mono',monospace;font-size:9.5px;background:rgba(217,83,79,.1);padding:1px 3px;border-radius:2px;">cold_final</code><br>Lista reaktywacji za 6 miesięcy<br>Opcja: kampania pocztowa/tel.</div>
     </div>
-
   </div>
 
   <!-- GLOBAL STOP -->
-  <div class="gstop" style="max-width:1100px; margin:20px auto 0;">
+  <div class="gstop">
     <div class="gs-ico">⚡</div>
     <div>
-      <div class="gs-ttl">Globalne triggery STOP — Woodpecker (automatyczne, działają na każdym etapie)</div>
+      <div class="gs-ttl">Globalne triggery STOP — automatyczne na każdym etapie</div>
       <div class="gs-txt">
-        <strong>REPLY wykryty</strong> → natychmiastowy STOP + tag <code>replied</code> + alert handlowca (priorytet: wysoki) &nbsp;·&nbsp;
-        <strong>ZAKUP w sklepie</strong> → STOP + tag <code>customer_returned</code> (jeśli integracja z WooCommerce) &nbsp;·&nbsp;
-        <strong>UNSUBSCRIBE</strong> → STOP + lista opt-out (RODO — efekt natychmiastowy) &nbsp;·&nbsp;
-        <strong>BOUNCE</strong> → usunięcie z listy + weryfikacja adresu
+        <strong>REPLY</strong> → auto-STOP + tag <code>replied</code> + alert handlowca &nbsp;·&nbsp;
+        <strong>ZAKUP w sklepie</strong> → STOP + tag <code>customer_returned</code> &nbsp;·&nbsp;
+        <strong>UNSUBSCRIBE</strong> → STOP + opt-out (RODO) &nbsp;·&nbsp;
+        <strong>BOUNCE</strong> → usunięcie + weryfikacja adresu
       </div>
     </div>
   </div>
@@ -557,19 +605,19 @@
   <div class="tl">
     <div class="tl-ttl">Oś czasu kampanii</div>
     <div class="tl-track">
-      <div class="tl-node tln-start">Dz. 1<br><span style="font-size:9.5px;font-weight:400;">E-1</span></div>
+      <div class="tl-node tln-s">Dz. 1<br><span style="font-size:9px;font-weight:400;">E1 A/B</span></div>
       <div class="tl-arr">→</div>
-      <div class="tl-node tln-mid">Dz. 2–6<br><span style="font-size:9.5px;font-weight:400;">E-2A/B/C/D</span></div>
+      <div class="tl-node tln-m">Dz. 2–6<br><span style="font-size:9px;font-weight:400;">E2A/C/D</span></div>
       <div class="tl-arr">→</div>
-      <div class="tl-node tln-conv">Dz. 5–10<br><span style="font-size:9.5px;font-weight:400;">E-3A/B/C</span></div>
+      <div class="tl-node tln-g">Dz. 5–10<br><span style="font-size:9px;font-weight:400;">E3A/B/C</span></div>
       <div class="tl-arr">→</div>
-      <div class="tl-node tln-stop">Dz. 14+<br><span style="font-size:9.5px;font-weight:400;">STOP</span></div>
+      <div class="tl-node tln-p">Dz. 14+<br><span style="font-size:9px;font-weight:400;">STOP</span></div>
     </div>
     <div class="tl-stats">
       <div class="tl-stat">
         <div class="tl-s-lbl">Maks. długość</div>
         <div class="tl-s-val">14</div>
-        <div class="tl-s-sub">dni od startu do STOP</div>
+        <div class="tl-s-sub">dni od startu</div>
       </div>
       <div class="tl-stat">
         <div class="tl-s-lbl">Maks. e-maili</div>
@@ -577,14 +625,14 @@
         <div class="tl-s-sub">na jeden kontakt</div>
       </div>
       <div class="tl-stat">
-        <div class="tl-s-lbl">Ścieżek</div>
-        <div class="tl-s-val">4</div>
-        <div class="tl-s-sub">behawioralne po E-mail 1</div>
+        <div class="tl-s-lbl">Test A/B</div>
+        <div class="tl-s-val">2</div>
+        <div class="tl-s-sub">warianty Fazy 1</div>
       </div>
       <div class="tl-stat">
-        <div class="tl-s-lbl">Wariantów e-maili</div>
-        <div class="tl-s-val">8</div>
-        <div class="tl-s-sub">dostosowanych do reakcji</div>
+        <div class="tl-s-lbl">Ścieżki</div>
+        <div class="tl-s-val">4</div>
+        <div class="tl-s-sub">behawioralne po E-1</div>
       </div>
     </div>
   </div>
@@ -594,7 +642,7 @@
 <footer class="ftr">
   <span>Art Open Sp. z o.o. · Wrocław · artopen.pl</span>
   <div class="ftr-dot"></div>
-  <span>Woodpecker Sequence Map · reaktywacja · segment NIEAKTYWNI</span>
+  <span>Woodpecker Sequence Map · test A/B · reaktywacja · NIEAKTYWNI</span>
 </footer>
 
 </body>
